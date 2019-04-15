@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+<<<<<<< HEAD
+
+import {MatToolbarModule} from '@angular/material';
+
+=======
 import { 
   MatToolbarModule, 
   MatButtonModule,
@@ -7,11 +12,16 @@ import {
   MatInputModule
 } from '@angular/material';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+>>>>>>> a22c70f5786e6e2969786c8427c5ebcc33cd9028
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { HeaderComponent } from './components/header/header.component';
+<<<<<<< HEAD
+=======
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule, ReactiveFormsModule,  } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -26,6 +36,7 @@ const routes = [
   { path: 'register', component: RegistrationComponent },
   { path: '**', component: RegistrationComponent }
 ];
+>>>>>>> a22c70f5786e6e2969786c8427c5ebcc33cd9028
 
 @NgModule({
   declarations: [
@@ -33,10 +44,15 @@ const routes = [
     HomeComponent,
     AboutComponent,
     ContactComponent,
+<<<<<<< HEAD
+    HeaderComponent
+  ],  
+=======
     HeaderComponent,
     RegistrationComponent,
     LoginComponent
   ],
+>>>>>>> a22c70f5786e6e2969786c8427c5ebcc33cd9028
   imports: [
     BrowserModule,
     MatToolbarModule,
