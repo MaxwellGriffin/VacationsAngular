@@ -16,9 +16,11 @@ import { FormsModule, ReactiveFormsModule,  } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import {DestinationsService} from './services/destinations.service';
+import {ItinerarysService} from './services/itinerarys.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { DestinationIndexComponent } from './components/destination/destination-index/destination-index.component';
+import { ItineraryIndexComponent } from './components/itinerary/itinerary-index/itinerary-index.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -30,6 +32,7 @@ const routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'destination', component: DestinationIndexComponent },
+  { path: 'itinerary', component: ItineraryIndexComponent },
   { path: '**', component: RegistrationComponent }
 ];
 
@@ -43,6 +46,7 @@ const routes = [
     RegistrationComponent,
     LoginComponent,
     DestinationIndexComponent
+    ItineraryIndexComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,7 @@ const routes = [
   providers: [
     AuthService,
     DestinationsService
+    ItinerarysService
   ],
   bootstrap: [AppComponent]
 })
