@@ -8,37 +8,37 @@
     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
     <ng-container matColumnDef="Region">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Region </mat-header-cell>
       <mat-cell *matCellDef="let Destination"> {{Destination.Region}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="TripType">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Trip Type </mat-header-cell>
       <mat-cell *matCellDef="let Destination"> {{Destination.TripType}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="Price">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
-      <mat-cell *matCellDef="let Destination"> {{Destination.Price}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+      <mat-cell *matCellDef="let Destination"> ${{Destination.Price}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="Name">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
       <mat-cell *matCellDef="let Destination"> {{Destination.Name}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="MinGuests">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Min. Guests </mat-header-cell>
       <mat-cell *matCellDef="let Destination"> {{Destination.MinGuests}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="MaxGuests">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Max Guests</mat-header-cell>
       <mat-cell *matCellDef="let Destination"> {{Destination.MaxGuests}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="Location">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
       <mat-cell *matCellDef="let Destination"> {{Destination.Location}} </mat-cell>
     </ng-container>
     
