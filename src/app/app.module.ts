@@ -23,6 +23,8 @@ import { ItineraryIndexComponent } from './components/itinerary/itinerary-index/
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ItineraryCreateComponent } from './components/itinerary/itinerary-create/itinerary-create.component';
+import { ItineraryDetailComponent } from './components/itinerary/itinerary-detail/itinerary-detail.component';
 
 
 const routes = [
@@ -33,7 +35,11 @@ const routes = [
   { path: 'login', component: LoginComponent },
   { path: 'destination', component: DestinationIndexComponent },
   { path: 'itinerary', component: ItineraryIndexComponent },
+
+  { path: 'itinerary/create', component: ItineraryCreateComponent },
+
   { path: '**', component: RegistrationComponent }
+
 ];
 
 @NgModule({
@@ -47,7 +53,9 @@ const routes = [
     RegistrationComponent,
     LoginComponent,
     DestinationIndexComponent,
-    ItineraryIndexComponent
+    ItineraryIndexComponent,
+    ItineraryCreateComponent,
+    ItineraryDetailComponent
   ],
   imports: [
     BrowserModule,

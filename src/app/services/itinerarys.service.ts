@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { createNodeAtIndex } from '@angular/core/src/render3/instructions';
+import { Itinerary } from '../models/itinerary';
 
 const ApiUrl = "http://localhost:51594/api";
 
@@ -19,4 +20,9 @@ export class ItinerarysService {
   private getHeaders(){
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
+
+
+createItinerary(itinerary: Itinerary){
+  return this._http.post('${apiUrl}/Itinerarys', itinerary, {headers:this.getHeaders()});
+}
 }
