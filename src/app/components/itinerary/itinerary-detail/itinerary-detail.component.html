@@ -1,3 +1,6 @@
-<p>
-  itinerary-detail works!
-</p>
+  <ng-container matColumnDef="details">
+    <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+    <mat-cell *matCelldef="let itinerary" routerLink="/itinerarys/detail/{{itinerary.ItineraryId}}">
+      <i class="material-icons">library_books</i>
+    </mat-cell>
+  </ng-container>

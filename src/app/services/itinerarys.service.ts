@@ -21,8 +21,11 @@ export class ItinerarysService {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
 
-
 createItinerary(itinerary: Itinerary){
   return this._http.post('${apiUrl}/Itinerarys', itinerary, {headers:this.getHeaders()});
 }
+}
+
+getItinerary(id: string){
+  return this._http.get('${ApiUrl}/Itinerarys/${id}',{headers:this.getHeaders()});
 }

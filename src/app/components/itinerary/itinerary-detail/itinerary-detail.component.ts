@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import { Itinerary } from 'src/app/models/itinerary';
 
 @Component({
   selector: 'app-itinerary-detail',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItineraryDetailComponent implements OnInit {
 
-  constructor() { }
+  itinerary: Itinerary;
+  
+  constructor(private _activedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this._activedRoute.paramMap.subscribe(routeData => {console.log(routeData);
+    
+    });
   }
 
 }

@@ -37,6 +37,7 @@ const routes = [
   { path: 'itinerary', component: ItineraryIndexComponent },
 
   { path: 'itinerary/create', component: ItineraryCreateComponent },
+  { path: 'itinerary/detail/:id', component: ItineraryDetailComponent },
 
   { path: '**', component: RegistrationComponent }
 
