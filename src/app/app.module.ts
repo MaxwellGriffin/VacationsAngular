@@ -22,6 +22,9 @@ import { DestinationIndexComponent } from './components/destination/destination-
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { DestinationCreateComponent } from './components/destination/destination-create/destination-create.component';
+import { DestinationDetailComponent } from './components/destination/destination-detail/destination-detail.component';
+import { DestinationEditComponent } from './components/destination/destination-edit/destination-edit.component';
 
 const routes = [
   { path: '', component: HomeComponent }, //will default to home when opened
@@ -29,9 +32,13 @@ const routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'destination', component: DestinationIndexComponent },
+  { path: 'destination', children: [
+    { path: '', component: DestinationIndexComponent },
+    { path: 'create', component: DestinationCreateComponent },
+    { path: 'details/:id', component: DestinationDetailComponent }
+  ]},
   { path: '**', component: RegistrationComponent }
-];
+  ];
 
 @NgModule({
   declarations: [
@@ -42,7 +49,10 @@ const routes = [
     HeaderComponent,
     RegistrationComponent,
     LoginComponent,
-    DestinationIndexComponent
+    DestinationIndexComponent,
+    DestinationCreateComponent,
+    DestinationDetailComponent,
+    DestinationEditComponent
   ],
   imports: [
     BrowserModule,

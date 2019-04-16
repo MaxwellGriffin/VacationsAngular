@@ -1,0 +1,40 @@
+<h1>Details</h1>
+<hr>
+
+<div *ngIf="destination">
+  <div>
+    <label for="">DestinationID:</label>
+    <span>{{destination.DestinationID}}</span>
+  </div>
+  <div>
+    <label for="">Name:</label>
+    <span>{{destination.Name}}</span>
+  </div>
+  <div>
+    <label for="">Location:</label>
+    <span>{{destination.Location}}</span>
+  </div>
+  <div>
+    <label for="">Price:</label>
+    <span>{{destination.Price}}</span>
+  </div>
+  <div>
+    <label for="">MinGuests:</label>
+    <span>{{destination.MinGuests}}</span>
+  </div>
+  <div>
+    <label for="">MaxGuests:</label>
+    <span>{{destination.MaxGuests}}</span>
+  </div>
+  <div>
+    <label for="">TripType:</label>
+    <span>{{destination.TripType}}</span>
+  </div>
+  <div>
+    <label for="">Region:</label>
+    <span>{{destination.Region}}</span>
+  </div>
+</div>
+
+<button mat-button color="accent">Edit</button>
+<button mat-button color="primary" routerLink="/destination">Back to List</button>
