@@ -9,7 +9,6 @@ import {
 } from '@angular/material';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-
 import { HeaderComponent } from './components/header/header.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule, ReactiveFormsModule,  } from '@angular/forms';
@@ -24,6 +23,7 @@ import { ItineraryIndexComponent } from './components/itinerary/itinerary-index/
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+
 
 const routes = [
   { path: '', component: HomeComponent }, //will default to home when opened
@@ -42,6 +42,7 @@ const routes = [
     HomeComponent,
     AboutComponent,
     ContactComponent,
+
     HeaderComponent,
     RegistrationComponent,
     LoginComponent,
@@ -66,7 +67,7 @@ const routes = [
   providers: [
     AuthService,
     DestinationsService,
-    ItinerarysService,
+    ItinerarysService
   ],
   bootstrap: [AppComponent]
 })
