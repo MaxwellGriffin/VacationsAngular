@@ -45,7 +45,7 @@ const routes = [
     HeaderComponent,
     RegistrationComponent,
     LoginComponent,
-    DestinationIndexComponent
+    DestinationIndexComponent,
     ItineraryIndexComponent
   ],
   imports: [
@@ -65,8 +65,8 @@ const routes = [
   ],
   providers: [
     AuthService,
-    DestinationsService
-    ItinerarysService
+    DestinationsService,
+    ItinerarysService,
   ],
   bootstrap: [AppComponent]
 })
