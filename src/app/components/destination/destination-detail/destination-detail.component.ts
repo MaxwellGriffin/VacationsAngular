@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DestinationsService } from 'src/app/services/destinations.service';
 import { Destination } from 'src/app/models/destination';
 
@@ -12,7 +12,7 @@ export class DestinationDetailComponent implements OnInit {
 
   destination: Destination;
 
-  constructor(private _activatedRoute: ActivatedRoute, private _destinationService: DestinationsService) { }
+  constructor(private _activatedRoute: ActivatedRoute, private _destinationService: DestinationsService, private _router: Router) { }
 
   ngOnInit() {
     this._activatedRoute.paramMap.subscribe(routeData => {
@@ -20,6 +20,10 @@ export class DestinationDetailComponent implements OnInit {
         this.destination = singleDestination;
       });
     });
+  }
+
+  onEditButtonClick() {
+    this._router.navigate([`/destination/edit/${this.destination.DestinationID}`]);
   }
 
 }
