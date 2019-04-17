@@ -1,0 +1,51 @@
+<h1>Index</h1>
+<a mat-raised-button color="primary" routerLink="/groups/create">Create New</a>
+<hr>
+
+<div>
+  <mat-table #table [dataSource]="dataSource">
+    <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+
+    <ng-container matColumnDef="Region">
+      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-cell *matCellDef="let Group"> {{Group.Region}} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="TripType">
+      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-cell *matCellDef="let Group"> {{Group.TripType}} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="GuestCount">
+      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-cell *matCellDef="let Group"> {{Group.GuestCount}} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-cell *matCellDef="let Group"> {{Group.Name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="details">
+      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-cell *matCellDef="let Group" routerLink="/groups/detail/{{group.GroupId}}">
+        <i class="material-icons"></i>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="buttons">
+      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+      <mat-cell *matCellDef="let Group">
+        <i mat-icon class="material-icons" routerLink="/groups/edit/{{group.GroupId}}">edit</i>
+        <i class="material-icons" routerLink="/groups/delete/{{group.GroupId}}">delete</i>
+      </mat-cell>
+    </ng-container>
+
+   
+
+    
+
+
+  </mat-table>
+</div>

@@ -12,7 +12,7 @@ export class DestinationIndexComponent implements OnInit {
 
   constructor(private _destinationService: DestinationsService) { }
 
-  columnNames = [ 'Region', 'TripType', 'Price', 'Name', 'MinGuests', 'MaxGuests', 'Location', 'buttons'];
+  columnNames: string[] = ['Region', 'TripType', 'Price', 'Name', 'MinGuests', 'MaxGuests', 'Location', 'buttons'];
   dataSource: MatTableDataSource<Destination>;
 
   ngOnInit() {

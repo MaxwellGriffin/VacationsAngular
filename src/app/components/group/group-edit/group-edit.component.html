@@ -1,0 +1,32 @@
+<h1>Edit a Group</h1>
+<hr>
+
+<div *ngIf="group">
+  <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="editGroupForm">
+   <div>
+     <div>
+       <mat-form-field>
+         <input matInput placeholder="Name" formControlName="Name" type="Name" required [value]="group.Name" />
+       </mat-form-field>
+     </div>
+     <div>
+      <mat-form-field>
+        <input matInput placeholder="TripType" formControlName="TripType" type="TripType" required [value]="group.TripType" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Region" formControlName="Region" type="Region" required [value]="group.Region" />
+      </mat-form-field>
+    </div>
+    <div>
+       <mat-form-field>
+        <input matInput placeholder="GuestCount" formControlName="GuestCount" type="GuestCount" required [value]="group.GuestCount" />
+       </mat-form-field>
+      </div>       
+   </div>
+   <button mat-raised-button class="nav-btn" color="primary" type="submit">Save</button>
+  </form>
+</div>
+
+<a mat-button routerLink="/groups">Back to List</a>
