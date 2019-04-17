@@ -1,5 +1,10 @@
 <h1>Index</h1>
-<a mat-raised-button color="primary">Create New</a>
+<p><i>
+  Regions: 0=Northeast, 1=Southeast, 2=Southwest, 3=West, 4=Midwest
+  <br>
+  Trip Types: 0=Family, 1=Girls, 2=Boys, 3=Individual, 4=Couples 
+</i></p>
+<a mat-raised-button color="primary" routerLink="/destination/create">Create New</a>
 <hr>
 
 <div>
@@ -8,45 +13,52 @@
     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
 
     <ng-container matColumnDef="Region">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Region </mat-header-cell>
       <mat-cell *matCellDef="let Destination"> {{Destination.Region}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="TripType">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Trip Type </mat-header-cell>
       <mat-cell *matCellDef="let Destination"> {{Destination.TripType}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="Price">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
-      <mat-cell *matCellDef="let Destination"> {{Destination.Price}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+      <mat-cell *matCellDef="let Destination"> ${{Destination.Price}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="Name">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
       <mat-cell *matCellDef="let Destination"> {{Destination.Name}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="MinGuests">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Min. Guests </mat-header-cell>
       <mat-cell *matCellDef="let Destination"> {{Destination.MinGuests}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="MaxGuests">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Max Guests</mat-header-cell>
       <mat-cell *matCellDef="let Destination"> {{Destination.MaxGuests}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="Location">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
       <mat-cell *matCellDef="let Destination"> {{Destination.Location}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="buttons">
-      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
       <mat-cell *matCellDef="let Destination">
-        <i mat-icon class="material-icons">edit</i>
-        <i class="material-icons">delete</i>
+        <a routerLink="/destination/edit/{{Destination.DestinationID}}">
+          <i mat-icon class="material-icons">edit</i>
+        </a>
+        <a routerLink="/destination/delete/{{Destination.DestinationID}}">
+          <i mat-icon class="material-icons">delete</i>
+        </a>
+        <a routerLink="/destination/details/{{Destination.DestinationID}}">
+          <i mat-icon class="material-icons">library_books</i>
+        </a>
       </mat-cell>
     </ng-container>
   </mat-table>

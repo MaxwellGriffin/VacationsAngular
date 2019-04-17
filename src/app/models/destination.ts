@@ -1,6 +1,6 @@
 export interface Destination{
     DestinationID: number;
-    Region: number;
+    Region: string;
     TripType: number;
     Price: number;
     Name: string;
