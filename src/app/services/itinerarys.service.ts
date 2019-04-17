@@ -23,9 +23,11 @@ export class ItinerarysService {
 
 createItinerary(itinerary: Itinerary){
   return this._http.post('${apiUrl}/Itinerarys', itinerary, {headers:this.getHeaders()});
-}
+
 }
 
 getItinerary(id: string){
   return this._http.get('${ApiUrl}/Itinerarys/${id}',{headers:this.getHeaders()});
+}
+
 }
