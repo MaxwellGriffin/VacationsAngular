@@ -1,5 +1,5 @@
 export interface Itinerary{
+    ItineraryID: number;
     OwnerID: string;
-    VacationID: number;
-    Name: string;
+    ItineraryName: string;
 }

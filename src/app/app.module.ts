@@ -7,7 +7,7 @@ import {
   MatInputModule,
   MatTableModule
 } from '@angular/material';
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RegistrationComponent } from './components/registration/registration.component';
@@ -25,6 +25,8 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ItineraryCreateComponent } from './components/itinerary/itinerary-create/itinerary-create.component';
 import { ItineraryDetailComponent } from './components/itinerary/itinerary-detail/itinerary-detail.component';
+import { ItineraryEditComponent } from './components/itinerary/itinerary-edit/itinerary-edit.component';
+
 
 
 const routes = [
@@ -38,6 +40,8 @@ const routes = [
 
   { path: 'itinerary/create', component: ItineraryCreateComponent },
   { path: 'itinerary/detail/:id', component: ItineraryDetailComponent },
+  { path: 'itinerary/edit/:id', component: ItineraryEditComponent},
+
 
   { path: '**', component: RegistrationComponent }
 
@@ -56,7 +60,9 @@ const routes = [
     DestinationIndexComponent,
     ItineraryIndexComponent,
     ItineraryCreateComponent,
-    ItineraryDetailComponent
+    ItineraryDetailComponent,
+    ItineraryEditComponent
+
   ],
   imports: [
     BrowserModule,

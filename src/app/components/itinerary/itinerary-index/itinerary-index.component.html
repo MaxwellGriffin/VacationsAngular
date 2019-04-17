@@ -9,13 +9,13 @@
     
     <ng-container matColumnDef="Name">
       <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
-      <mat-cell *matCellDef="let Destination"> {{Destination.Name}} </mat-cell>
+      <mat-cell *matCellDef="let Itinerary"> {{Itinerary.ItineraryName}} </mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="buttons">
       <mat-header-cell *matHeaderCellDef> </mat-header-cell>
-      <mat-cell *matCellDef="let Destination">
-        <i mat-icon class="material-icons">edit</i>
+      <mat-cell *matCellDef="let Itinerary">
+        <i mat-icon class="material-icons" routerLink="itinerary/edit/{{itinerary.Name}}">edit</i>
         <i class="material-icons">delete</i>
       </mat-cell>
     </ng-container>

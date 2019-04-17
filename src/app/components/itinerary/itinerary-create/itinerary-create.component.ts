@@ -20,14 +20,13 @@ export class ItineraryCreateComponent implements OnInit {
 
   createForm(){
     this.itineraryForm = this._form.group({
-      TItle: new FormControl,
-      Content: new FormControl
+      ItineraryName: new FormControl
     });
   }
 
     onSubmit() {
   this._itinerary.createItinerary(this.itineraryForm.value).subscribe(data => {
-      this._router.navigate(['/itinerarys']);
+      this._router.navigate(['/itinerary']);
   });
 
   }

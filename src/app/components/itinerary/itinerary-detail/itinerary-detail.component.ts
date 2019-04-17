@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Itinerary } from 'src/app/models/itinerary';
 import { ItinerarysService } from 'src/app/services/itinerarys.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-itinerary-detail',
@@ -11,8 +12,8 @@ import { ItinerarysService } from 'src/app/services/itinerarys.service';
 export class ItineraryDetailComponent implements OnInit {
 
   itinerary: Itinerary;
-  
-  constructor(private _activedRoute: ActivatedRoute, private _itineraryService: ItinerarysService) { }
+
+  constructor(private _activedRoute: ActivatedRoute, private _itineraryService: ItinerarysService){}
 
   ngOnInit() {
     this._activedRoute.paramMap.subscribe(routeData => {
@@ -20,6 +21,5 @@ export class ItineraryDetailComponent implements OnInit {
         this.itinerary = singleItinerary;
     });
   });
-  }
-
-  }
+}
+}
