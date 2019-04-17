@@ -26,16 +26,12 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ItineraryCreateComponent } from './components/itinerary/itinerary-create/itinerary-create.component';
 import { ItineraryDetailComponent } from './components/itinerary/itinerary-detail/itinerary-detail.component';
 import { ItineraryEditComponent } from './components/itinerary/itinerary-edit/itinerary-edit.component';
-
-
-
 import { DestinationCreateComponent } from './components/destination/destination-create/destination-create.component';
 import { DestinationDetailComponent } from './components/destination/destination-detail/destination-detail.component';
 import { DestinationEditComponent } from './components/destination/destination-edit/destination-edit.component';
 import { Error404Component } from './components/error404/error404.component';
 import { NoteDeleteComponent } from './components/note/note-delete/note-delete.component';
 import { DestinationDeleteComponent } from './components/destination/destination-delete/destination-delete.component';
-
 import { GroupIndexComponent } from './compponents/group/group-index/group-index.component';
 import { GroupService } from './services/group.service';
 import { GroupCreateComponent } from './components/group/group-create/group-create.component';
@@ -51,7 +47,7 @@ const routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
-
+  { path: '**', component: Error404Component },
   { path: 'destination', children: [
     { path: '', component: DestinationIndexComponent },
     { path: 'create', component: DestinationCreateComponent },
@@ -59,15 +55,13 @@ const routes = [
     { path: 'edit/:id', component: DestinationEditComponent },
     { path: 'delete/:id', component: DestinationDeleteComponent }
   ]},
-  { path: '**', component: Error404Component }
-  ];
-
-  { path: 'destination', component: DestinationIndexComponent },
-  { path: 'itinerary', component: ItineraryIndexComponent },
-
-  { path: 'itinerary/create', component: ItineraryCreateComponent },
-  { path: 'itinerary/detail/:id', component: ItineraryDetailComponent },
-  { path: 'itinerary/edit/:id', component: ItineraryEditComponent},
+  { path: 'itinerary', children: [
+    { path: '', component: ItineraryIndexComponent },
+    { path: 'create', component: ItineraryCreateComponent },
+    { path: 'details/:id', component: ItineraryDetailComponent },
+    { path: 'edit/:id', component: ItineraryEditComponent },
+    //{ path: 'delete/:id', component: ItineraryDeleteComponent }
+  ]},
   { 
     path: 'group', children: [
     { path: '', component: GroupIndexComponent },
@@ -76,8 +70,7 @@ const routes = [
     { path: 'edit/:id', component: GroupEditComponent},
     { path: 'delete/:id', component: GroupDeleteComponent}
     ]
-  },
-  { path: '**', component: RegistrationComponent }
+  }
 
 ];
 
@@ -96,13 +89,13 @@ const routes = [
     ItineraryIndexComponent,
     ItineraryCreateComponent,
     ItineraryDetailComponent,
-    ItineraryEditComponent
+    ItineraryEditComponent,
     DestinationCreateComponent,
     DestinationDetailComponent,
     DestinationEditComponent,
     Error404Component,
     NoteDeleteComponent,
-    DestinationDeleteComponent
+    DestinationDeleteComponent,
 
     GroupIndexComponent,
     GroupCreateComponent,
@@ -129,7 +122,7 @@ const routes = [
   providers: [
     AuthService,
     DestinationsService,
-    ItinerarysService
+    ItinerarysService,
     GroupService
   ],
   bootstrap: [AppComponent]
