@@ -22,6 +22,13 @@ import { DestinationIndexComponent } from './components/destination/destination-
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { GroupIndexComponent } from './compponents/group/group-index/group-index.component';
+import { GroupService } from './services/group.service';
+import { GroupCreateComponent } from './components/group/group-create/group-create.component';
+import { GroupDetailComponent } from './components/group/group-detail/group-detail.component';
+import { GroupDeleteComponent } from './components/group/group-delete/group-delete.component';
+import { GroupEditComponent } from './components/group/group-edit/group-edit.component';
+
 
 const routes = [
   { path: '', component: HomeComponent }, //will default to home when opened
@@ -30,6 +37,15 @@ const routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'destination', component: DestinationIndexComponent },
+  { 
+    path: 'group', children: [
+    { path: '', component: GroupIndexComponent },
+    { path: 'create', component: GroupCreateComponent},
+    { path: 'detail/:id', component: GroupDetailComponent},
+    { path: 'edit/:id', component: GroupEditComponent},
+    { path: 'delete/:id', component: GroupDeleteComponent}
+    ]
+  },
   { path: '**', component: RegistrationComponent }
 ];
 
@@ -42,7 +58,12 @@ const routes = [
     HeaderComponent,
     RegistrationComponent,
     LoginComponent,
-    DestinationIndexComponent
+    DestinationIndexComponent,
+    GroupIndexComponent,
+    GroupCreateComponent,
+    GroupDetailComponent,
+    GroupDeleteComponent,
+    GroupEditComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +82,9 @@ const routes = [
   ],
   providers: [
     AuthService,
-    DestinationsService
+    DestinationsService,
+    GroupService
+    
   ],
   bootstrap: [AppComponent]
 })

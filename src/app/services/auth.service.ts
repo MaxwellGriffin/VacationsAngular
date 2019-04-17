@@ -5,7 +5,7 @@ import { Token } from '../models/token';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
-const Api_Url = "http://localhost:51594/";
+const Api_Url = "https://vacationsunitedwebapidnf2019.azurewebsites.net/api";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class AuthService {
   constructor(private _http: HttpClient, private _router: Router) { }
 
   register(regUserData: RegisterUser){
-    return this._http.post(`${Api_Url}api/account/register`, regUserData);
+    return this._http.post(`${Api_Url}/account/register`, regUserData);
   }
 
   login(loginInfo){
