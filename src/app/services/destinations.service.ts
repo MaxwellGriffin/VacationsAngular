@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Destination } from '../models/destination';
-
-const ApiUrl = "http://localhost:51594/api";
+import { Api_Url } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -17,22 +16,22 @@ export class DestinationsService {
   }
 
   getDestinations() {
-    return this._http.get(`${ApiUrl}/Destination`, { headers: this.getHeaders() });
+    return this._http.get(`${Api_Url}/api/Destination`, { headers: this.getHeaders() });
   }
 
   getDestination(id: string){
-    return this._http.get(`${ApiUrl}/Destination/${id}`, { headers: this.getHeaders() });
+    return this._http.get(`${Api_Url}/api/Destination/${id}`, { headers: this.getHeaders() });
   }
 
   createDestination(destination: Destination){
-    return this._http.post(`${ApiUrl}/Destination`, destination, { headers: this.getHeaders() });
+    return this._http.post(`${Api_Url}/api/Destination`, destination, { headers: this.getHeaders() });
   }
 
   updateDestination(destination: Destination){
-    return this._http.put(`${ApiUrl}/Destination`, destination, { headers: this.getHeaders() });
+    return this._http.put(`${Api_Url}/api/Destination`, destination, { headers: this.getHeaders() });
   }
 
   deleteDestination(id: number){
-    return this._http.delete(`${ApiUrl}/Destination/${id}`, { headers: this.getHeaders() });
+    return this._http.delete(`${Api_Url}/api/Destination/${id}`, { headers: this.getHeaders() });
   }
 }
