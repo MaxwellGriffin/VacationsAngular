@@ -53,9 +53,11 @@
         <a routerLink="/destination/edit/{{Destination.DestinationID}}">
           <i mat-icon class="material-icons">edit</i>
         </a>
-        <i class="material-icons">delete</i>
+        <a routerLink="/destination/delete/{{Destination.DestinationID}}">
+          <i mat-icon class="material-icons">delete</i>
+        </a>
         <a routerLink="/destination/details/{{Destination.DestinationID}}">
-          <i class="material-icons">library_books</i>
+          <i mat-icon class="material-icons">library_books</i>
         </a>
       </mat-cell>
     </ng-container>

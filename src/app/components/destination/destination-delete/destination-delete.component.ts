@@ -20,6 +20,12 @@ export class DestinationDeleteComponent implements OnInit {
     });
   }
 
+  onDeleteButtonClick(){
+    this._destinationService.deleteDestination(this.destination.DestinationID).subscribe(()=> {
+      this._router.navigate(['/destination']);
+    });
+  }
+
   ngOnInit() {
   }
 
