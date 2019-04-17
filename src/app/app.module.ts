@@ -7,21 +7,27 @@ import {
   MatInputModule,
   MatTableModule
 } from '@angular/material';
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-
 import { HeaderComponent } from './components/header/header.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule, ReactiveFormsModule,  } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import {DestinationsService} from './services/destinations.service';
+import {ItinerarysService} from './services/itinerarys.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { DestinationIndexComponent } from './components/destination/destination-index/destination-index.component';
+import { ItineraryIndexComponent } from './components/itinerary/itinerary-index/itinerary-index.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ItineraryCreateComponent } from './components/itinerary/itinerary-create/itinerary-create.component';
+import { ItineraryDetailComponent } from './components/itinerary/itinerary-detail/itinerary-detail.component';
+import { ItineraryEditComponent } from './components/itinerary/itinerary-edit/itinerary-edit.component';
+
+
 
 import { DestinationCreateComponent } from './components/destination/destination-create/destination-create.component';
 import { DestinationDetailComponent } from './components/destination/destination-detail/destination-detail.component';
@@ -57,6 +63,11 @@ const routes = [
   ];
 
   { path: 'destination', component: DestinationIndexComponent },
+  { path: 'itinerary', component: ItineraryIndexComponent },
+
+  { path: 'itinerary/create', component: ItineraryCreateComponent },
+  { path: 'itinerary/detail/:id', component: ItineraryDetailComponent },
+  { path: 'itinerary/edit/:id', component: ItineraryEditComponent},
   { 
     path: 'group', children: [
     { path: '', component: GroupIndexComponent },
@@ -67,6 +78,7 @@ const routes = [
     ]
   },
   { path: '**', component: RegistrationComponent }
+
 ];
 
 
@@ -76,11 +88,15 @@ const routes = [
     HomeComponent,
     AboutComponent,
     ContactComponent,
+
     HeaderComponent,
     RegistrationComponent,
     LoginComponent,
     DestinationIndexComponent,
-
+    ItineraryIndexComponent,
+    ItineraryCreateComponent,
+    ItineraryDetailComponent,
+    ItineraryEditComponent
     DestinationCreateComponent,
     DestinationDetailComponent,
     DestinationEditComponent,
@@ -113,8 +129,8 @@ const routes = [
   providers: [
     AuthService,
     DestinationsService,
+    ItinerarysService
     GroupService
-    
   ],
   bootstrap: [AppComponent]
 })
