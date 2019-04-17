@@ -50,7 +50,9 @@
     <ng-container matColumnDef="buttons">
       <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
       <mat-cell *matCellDef="let Destination">
-        <i mat-icon class="material-icons">edit</i>
+        <a routerLink="/destination/edit/{{Destination.DestinationID}}">
+          <i mat-icon class="material-icons">edit</i>
+        </a>
         <i class="material-icons">delete</i>
         <a routerLink="/destination/details/{{Destination.DestinationID}}">
           <i class="material-icons">library_books</i>

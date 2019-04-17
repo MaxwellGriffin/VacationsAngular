@@ -20,7 +20,7 @@ export class DestinationsService {
     return this._http.get(`${ApiUrl}/Destination`, { headers: this.getHeaders() });
   }
 
-  getDestination(id:string){
+  getDestination(id: string){
     return this._http.get(`${ApiUrl}/Destination/${id}`, { headers: this.getHeaders() });
   }
 
@@ -28,9 +28,11 @@ export class DestinationsService {
     return this._http.post(`${ApiUrl}/Destination`, destination, { headers: this.getHeaders() });
   }
 
-  updateDestinatoin(destination: Destination){
+  updateDestination(destination: Destination){
     return this._http.put(`${ApiUrl}/Destination`, destination, { headers: this.getHeaders() });
   }
 
-
+  deleteDestination(id: number){
+    return this._http.delete(`${ApiUrl}/Destination/${id}`, { headers: this.getHeaders() });
+  }
 }

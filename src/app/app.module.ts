@@ -25,6 +25,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { DestinationCreateComponent } from './components/destination/destination-create/destination-create.component';
 import { DestinationDetailComponent } from './components/destination/destination-detail/destination-detail.component';
 import { DestinationEditComponent } from './components/destination/destination-edit/destination-edit.component';
+import { Error404Component } from './components/error404/error404.component';
+import { NoteDeleteComponent } from './components/note/note-delete/note-delete.component';
+import { DestinationDeleteComponent } from './components/destination/destination-delete/destination-delete.component';
 
 const routes = [
   { path: '', component: HomeComponent }, //will default to home when opened
@@ -35,9 +38,11 @@ const routes = [
   { path: 'destination', children: [
     { path: '', component: DestinationIndexComponent },
     { path: 'create', component: DestinationCreateComponent },
-    { path: 'details/:id', component: DestinationDetailComponent }
+    { path: 'details/:id', component: DestinationDetailComponent },
+    { path: 'edit/:id', component: DestinationEditComponent },
+    { path: 'delete/:id', component: DestinationDeleteComponent }
   ]},
-  { path: '**', component: RegistrationComponent }
+  { path: '**', component: Error404Component }
   ];
 
 @NgModule({
@@ -52,7 +57,10 @@ const routes = [
     DestinationIndexComponent,
     DestinationCreateComponent,
     DestinationDetailComponent,
-    DestinationEditComponent
+    DestinationEditComponent,
+    Error404Component,
+    NoteDeleteComponent,
+    DestinationDeleteComponent
   ],
   imports: [
     BrowserModule,
