@@ -1,17 +1,8 @@
-<!-- 
-  <ng-container matColumnDef="details">
-    <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
-    <mat-cell *matCelldef="let itinerary" routerLink="/itinerarys/detail/{{itinerary.ItineraryId}}">
-      <i class="material-icons">library_books</i>
-    </mat-cell>
-  </ng-container>
-  --> 
-
   <h1>Details</h1>
   <hr>
   <div *ngIf="itinerary">
-      <label for="">Itinerary Name:</label>
-      <span>{{itinerary.ItineraryName}}>
-
-  <button mat-button color="accent">Edit</button>|
-  <button mat-button color="primary" routerLink="/itinerarys">Back to List</button>
+      <label for="">Itinerary Name: </label>
+      <span>{{itinerary.ItineraryName}}
+<br>
+<button mat-button color="accent">Edit</button>|
+<button mat-button color="primary" routerLink="/itinerary">Back to List</button>

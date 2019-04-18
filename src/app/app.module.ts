@@ -38,6 +38,7 @@ import { GroupCreateComponent } from './components/group/group-create/group-crea
 import { GroupDetailComponent } from './components/group/group-detail/group-detail.component';
 import { GroupDeleteComponent } from './components/group/group-delete/group-delete.component';
 import { GroupEditComponent } from './components/group/group-edit/group-edit.component';
+import { ItineraryDeleteComponent } from './components/itinerary/itinerary-delete/itinerary-delete.component';
 
 
 
@@ -47,7 +48,7 @@ const routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
-  { path: '**', component: Error404Component },
+  
   { path: 'destination', children: [
     { path: '', component: DestinationIndexComponent },
     { path: 'create', component: DestinationCreateComponent },
@@ -60,7 +61,7 @@ const routes = [
     { path: 'create', component: ItineraryCreateComponent },
     { path: 'details/:id', component: ItineraryDetailComponent },
     { path: 'edit/:id', component: ItineraryEditComponent },
-    //{ path: 'delete/:id', component: ItineraryDeleteComponent }
+    { path: 'delete/:id', component: ItineraryDeleteComponent }
   ]},
   { 
     path: 'group', children: [
@@ -70,8 +71,8 @@ const routes = [
     { path: 'edit/:id', component: GroupEditComponent},
     { path: 'delete/:id', component: GroupDeleteComponent}
     ]
-  }
-
+  },
+ // { path: '**', component: Error404Component },
 ];
 
 
@@ -101,7 +102,8 @@ const routes = [
     GroupCreateComponent,
     GroupDetailComponent,
     GroupDeleteComponent,
-    GroupEditComponent
+    GroupEditComponent,
+    ItineraryDeleteComponent
 
   ],
   imports: [
