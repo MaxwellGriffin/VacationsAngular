@@ -1,0 +1,32 @@
+<h1>Index</h1>>
+<a mat-raised-button color="primary" routerLink="/selecteddestinations/create">Create New</a>
+<hr>
+
+<div>
+  <mat-table #table [dataSource]="dataSource">
+    <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+
+    <ng-container matColumnDef="Day">
+      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-cell *matCellDef="let selecteddestination"> {{Selecteddestination.Day}} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+        <mat-cell *matCellDef="let selecteddestination" routerLink="/selecteddestination/detail/{{selecteddestination.SelecteddestinationId}}">
+          <i class="material-icons"></i>
+    </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="buttons">
+          <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+          <mat-cell *matCellDef="let selecteddestination">
+            <i class="material-icons" routerLink="/selecteddestination/edit//{{selecteddestination.SelecteddestinationId}}">edit</i>
+            <i class="material-icons" routerLink="/selecteddestinations/delete/{{selecteddestination.SelecteddestinationId">delete</i>
+      </mat-cell>
+
+      
+     </ng-container>
+  </mat-table>
+</div>
