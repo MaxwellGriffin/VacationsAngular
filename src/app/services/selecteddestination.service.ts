@@ -23,5 +23,17 @@ export class SelecteddestinationService {
     return this._http.post(`${ApiUrl}/Selecteddestinations`, selecteddestination, {headers: this.getHeaders()});
   }
 
+  getSelecteddestination(id: string) {
+    return this._http.get(`${ApiUrl}/Selecteddestination/${id}`, { headers: this.getHeaders() });
+  }
+
+  updateSelecteddestination(selecteddestination: Selecteddestination) {
+    return this._http.put(`${ApiUrl}/selecteddestination`, selecteddestination, { headers: this.getHeaders() });
+  }
+
+  deleteSelecteddestination(id: number) {
+    return this._http.delete(`${ApiUrl}/Selecteddestinations/${id}`, { headers: this.getHeaders() });
+  }
+
 
 }

@@ -37,6 +37,7 @@ import { GroupCreateComponent } from './components/group/group-create/group-crea
 import { GroupDetailComponent } from './components/group/group-detail/group-detail.component';
 import { GroupDeleteComponent } from './components/group/group-delete/group-delete.component';
 import { GroupEditComponent } from './components/group/group-edit/group-edit.component';
+import { SelecteddestinationService } from './services/selecteddestination.service';
 import { Error403Component } from './components/error/error403/error403.component';
 import { LoginGuard } from './guards/login.guard';
 import { AdminGuard } from './guards/admin.guard';
@@ -76,9 +77,20 @@ const routes = [
     { path: 'delete/:id', component: GroupDeleteComponent}
     ]
   },
+{
+  path: 'selecteddestination', children: [
+  { path: '', component: SelecteddestinationIndexComponent},
+  { path: 'create', component: SelecteddestinationCreateComponent},
+  { path: 'detail/:id', component: SelecteddestinationDetailComponent},
+  { path: 'edit/:id', component: SelecteddestinationEditComponent},
+  { path: 'delete/:id', component: SelecteddestinationDeleteComponent}
+  ]
+},
   { path: '403forbidden', component: Error403Component },
   { path: '**', component: Error404Component },
 ];
+
+
 
 
 @NgModule({
@@ -135,6 +147,7 @@ const routes = [
     DestinationsService,
     ItinerarysService,
     GroupService,
+    SelecteddestinationService
     LoginGuard,
     AdminGuard
   ],
