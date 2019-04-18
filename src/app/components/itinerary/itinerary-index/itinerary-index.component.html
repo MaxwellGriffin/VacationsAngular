@@ -1,23 +1,31 @@
 <h1>Index</h1>
-<a mat-raised-button color="primary">Create New</a>
+<a mat-raised-button color="primary" routerLink="/itinerary/create">Create New</a>
 <hr>
 
 <div>
   <mat-table #table [dataSource]="dataSource">
     <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
-    
+
     <ng-container matColumnDef="Name">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+      <mat-header-cell *matHeaderCellDef class="matColumnSize">Itinerary Name</mat-header-cell>
       <mat-cell *matCellDef="let Itinerary"> {{Itinerary.ItineraryName}} </mat-cell>
     </ng-container>
-    
+
     <ng-container matColumnDef="buttons">
-      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let Itinerary">
-        <i mat-icon class="material-icons" routerLink="itinerary/edit/{{itinerary.Name}}">edit</i>
-        <i class="material-icons">delete</i>
+        <a routerLink="/itinerary/edit/{{Itinerary.ItineraryID}}">
+          <i mat-icon class="material-icons">edit</i>
+        </a>
+        <a routerLink="/itinerary/delete/{{Itinerary.ItineraryID}}">
+          <i class="material-icons">delete</i>
+        </a>
+        <a routerLink="/itinerary/details/{{Itinerary.ItineraryID}}">
+          <i mat-icon class="material-icons">library_books</i>
+        </a>
       </mat-cell>
     </ng-container>
+
   </mat-table>
 </div>

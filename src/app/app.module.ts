@@ -29,17 +29,23 @@ import { ItineraryEditComponent } from './components/itinerary/itinerary-edit/it
 import { DestinationCreateComponent } from './components/destination/destination-create/destination-create.component';
 import { DestinationDetailComponent } from './components/destination/destination-detail/destination-detail.component';
 import { DestinationEditComponent } from './components/destination/destination-edit/destination-edit.component';
-import { Error404Component } from './components/error404/error404.component';
-import { NoteDeleteComponent } from './components/note/note-delete/note-delete.component';
+import { Error404Component } from './components/error/error404/error404.component';
 import { DestinationDeleteComponent } from './components/destination/destination-delete/destination-delete.component';
-import { GroupIndexComponent } from './compponents/group/group-index/group-index.component';
+import { GroupIndexComponent } from './components/group/group-index/group-index.component';
 import { GroupService } from './services/group.service';
 import { GroupCreateComponent } from './components/group/group-create/group-create.component';
 import { GroupDetailComponent } from './components/group/group-detail/group-detail.component';
 import { GroupDeleteComponent } from './components/group/group-delete/group-delete.component';
 import { GroupEditComponent } from './components/group/group-edit/group-edit.component';
-
-
+import { Error403Component } from './components/error/error403/error403.component';
+import { LoginGuard } from './guards/login.guard';
+import { AdminGuard } from './guards/admin.guard';
+import { ItineraryDeleteComponent } from './components/itinerary/itinerary-delete/itinerary-delete.component';
+import { SelecteddestinationIndexComponent } from './components/selecteddestination/selecteddestination-index/selecteddestination-index.component';
+import { SelecteddestinationCreateComponent } from './components/selecteddestination/selecteddestination-create/selecteddestination-create.component';
+import { SelecteddestinationDetailComponent } from './components/selecteddestination/selecteddestination-detail/selecteddestination-detail.component';
+import { SelecteddestinationEditComponent } from './components/selecteddestination/selecteddestination-edit/selecteddestination-edit.component';
+import { SelecteddestinationDeleteComponent } from './components/selecteddestination/selecteddestination-delete/selecteddestination-delete.component';
 
 const routes = [
   { path: '', component: HomeComponent }, //will default to home when opened
@@ -47,31 +53,31 @@ const routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
-  { path: '**', component: Error404Component },
-  { path: 'destination', children: [
+  { path: 'destination', canActivate: [AdminGuard], children: [
     { path: '', component: DestinationIndexComponent },
     { path: 'create', component: DestinationCreateComponent },
     { path: 'details/:id', component: DestinationDetailComponent },
     { path: 'edit/:id', component: DestinationEditComponent },
     { path: 'delete/:id', component: DestinationDeleteComponent }
   ]},
-  { path: 'itinerary', children: [
+  { path: 'itinerary', canActivate: [LoginGuard], children: [
     { path: '', component: ItineraryIndexComponent },
     { path: 'create', component: ItineraryCreateComponent },
     { path: 'details/:id', component: ItineraryDetailComponent },
     { path: 'edit/:id', component: ItineraryEditComponent },
-    //{ path: 'delete/:id', component: ItineraryDeleteComponent }
+    { path: 'delete/:id', component: ItineraryDeleteComponent }
   ]},
   { 
-    path: 'group', children: [
+    path: 'group', canActivate: [LoginGuard], children: [
     { path: '', component: GroupIndexComponent },
     { path: 'create', component: GroupCreateComponent},
     { path: 'detail/:id', component: GroupDetailComponent},
     { path: 'edit/:id', component: GroupEditComponent},
     { path: 'delete/:id', component: GroupDeleteComponent}
     ]
-  }
-
+  },
+  { path: '403forbidden', component: Error403Component },
+  { path: '**', component: Error404Component },
 ];
 
 
@@ -94,15 +100,20 @@ const routes = [
     DestinationDetailComponent,
     DestinationEditComponent,
     Error404Component,
-    NoteDeleteComponent,
     DestinationDeleteComponent,
 
     GroupIndexComponent,
     GroupCreateComponent,
     GroupDetailComponent,
     GroupDeleteComponent,
-    GroupEditComponent
-
+    GroupEditComponent,
+    Error403Component,
+    ItineraryDeleteComponent,
+    SelecteddestinationIndexComponent,
+    SelecteddestinationCreateComponent,
+    SelecteddestinationDetailComponent,
+    SelecteddestinationEditComponent,
+    SelecteddestinationDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -123,7 +134,9 @@ const routes = [
     AuthService,
     DestinationsService,
     ItinerarysService,
-    GroupService
+    GroupService,
+    LoginGuard,
+    AdminGuard
   ],
   bootstrap: [AppComponent]
 })
