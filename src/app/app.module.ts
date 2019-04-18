@@ -30,7 +30,6 @@ import { DestinationCreateComponent } from './components/destination/destination
 import { DestinationDetailComponent } from './components/destination/destination-detail/destination-detail.component';
 import { DestinationEditComponent } from './components/destination/destination-edit/destination-edit.component';
 import { Error404Component } from './components/error404/error404.component';
-import { NoteDeleteComponent } from './components/note/note-delete/note-delete.component';
 import { DestinationDeleteComponent } from './components/destination/destination-delete/destination-delete.component';
 import { GroupIndexComponent } from './compponents/group/group-index/group-index.component';
 import { GroupService } from './services/group.service';
@@ -38,6 +37,11 @@ import { GroupCreateComponent } from './components/group/group-create/group-crea
 import { GroupDetailComponent } from './components/group/group-detail/group-detail.component';
 import { GroupDeleteComponent } from './components/group/group-delete/group-delete.component';
 import { GroupEditComponent } from './components/group/group-edit/group-edit.component';
+import { SelecteddestinationIndexComponent } from './components/selecteddestination/selecteddestination-index/selecteddestination-index.component';
+import { SelecteddestinationCreateComponent } from './components/selecteddestination/selecteddestination-create/selecteddestination-create.component';
+import { SelecteddestinationDetailComponent } from './components/selecteddestination/selecteddestination-detail/selecteddestination-detail.component';
+import { SelecteddestinationEditComponent } from './components/selecteddestination/selecteddestination-edit/selecteddestination-edit.component';
+import { SelecteddestinationDeleteComponent } from './components/selecteddestination/selecteddestination-delete/selecteddestination-delete.component';
 
 
 
@@ -94,14 +98,18 @@ const routes = [
     DestinationDetailComponent,
     DestinationEditComponent,
     Error404Component,
-    NoteDeleteComponent,
     DestinationDeleteComponent,
 
     GroupIndexComponent,
     GroupCreateComponent,
     GroupDetailComponent,
     GroupDeleteComponent,
-    GroupEditComponent
+    GroupEditComponent,
+    SelecteddestinationIndexComponent,
+    SelecteddestinationCreateComponent,
+    SelecteddestinationDetailComponent,
+    SelecteddestinationEditComponent,
+    SelecteddestinationDeleteComponent
 
   ],
   imports: [

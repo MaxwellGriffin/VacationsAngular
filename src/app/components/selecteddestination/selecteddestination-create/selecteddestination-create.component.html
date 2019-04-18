@@ -1,0 +1,15 @@
+<h1>Create Selected Destination</h1>>
+<hr>
+
+<form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="noteForm">
+  <div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Day" formControlName="Day" type="Day" required/>
+      </mat-form-field>
+    </div>
+    <div>
+        <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Selected Destination</button>
+      </form>
+      
+      <a mat-button routerLink="/selecteddestination">Back to List</a> 
