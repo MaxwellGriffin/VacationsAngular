@@ -8,6 +8,7 @@ export let Api_Url = "";
 //   break;
 // };
 Api_Url = "http://localhost:51594"; //temp
+
 export const environment = {
   production: true
 };
