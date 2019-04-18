@@ -7,7 +7,7 @@ export let Api_Url = "";
 //   Api_Url = "https://vacationsunitedwebapidnf2019.azurewebsites.net";
 //   break;
 // };
-Api_Url = "http://localhost:51594"; //temporary
+Api_Url = "http://localhost:51594"; //temp
 
 export const environment = {
   production: true

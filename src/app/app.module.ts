@@ -40,8 +40,12 @@ import { GroupEditComponent } from './components/group/group-edit/group-edit.com
 import { Error403Component } from './components/error/error403/error403.component';
 import { LoginGuard } from './guards/login.guard';
 import { AdminGuard } from './guards/admin.guard';
-
-
+import { ItineraryDeleteComponent } from './components/itinerary/itinerary-delete/itinerary-delete.component';
+import { SelecteddestinationIndexComponent } from './components/selecteddestination/selecteddestination-index/selecteddestination-index.component';
+import { SelecteddestinationCreateComponent } from './components/selecteddestination/selecteddestination-create/selecteddestination-create.component';
+import { SelecteddestinationDetailComponent } from './components/selecteddestination/selecteddestination-detail/selecteddestination-detail.component';
+import { SelecteddestinationEditComponent } from './components/selecteddestination/selecteddestination-edit/selecteddestination-edit.component';
+import { SelecteddestinationDeleteComponent } from './components/selecteddestination/selecteddestination-delete/selecteddestination-delete.component';
 
 const routes = [
   { path: '', component: HomeComponent }, //will default to home when opened
@@ -61,7 +65,7 @@ const routes = [
     { path: 'create', component: ItineraryCreateComponent },
     { path: 'details/:id', component: ItineraryDetailComponent },
     { path: 'edit/:id', component: ItineraryEditComponent },
-    //{ path: 'delete/:id', component: ItineraryDeleteComponent }
+    { path: 'delete/:id', component: ItineraryDeleteComponent }
   ]},
   { 
     path: 'group', canActivate: [LoginGuard], children: [
@@ -74,8 +78,6 @@ const routes = [
   },
   { path: '403forbidden', component: Error403Component },
   { path: '**', component: Error404Component },
-
-
 ];
 
 
@@ -105,8 +107,13 @@ const routes = [
     GroupDetailComponent,
     GroupDeleteComponent,
     GroupEditComponent,
-    Error403Component
-
+    Error403Component,
+    ItineraryDeleteComponent,
+    SelecteddestinationIndexComponent,
+    SelecteddestinationCreateComponent,
+    SelecteddestinationDetailComponent,
+    SelecteddestinationEditComponent,
+    SelecteddestinationDeleteComponent
   ],
   imports: [
     BrowserModule,
