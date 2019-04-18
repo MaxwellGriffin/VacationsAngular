@@ -37,6 +37,7 @@ import { GroupCreateComponent } from './components/group/group-create/group-crea
 import { GroupDetailComponent } from './components/group/group-detail/group-detail.component';
 import { GroupDeleteComponent } from './components/group/group-delete/group-delete.component';
 import { GroupEditComponent } from './components/group/group-edit/group-edit.component';
+import { SelecteddestinationService } from './services/selecteddestination.service';
 import { SelecteddestinationIndexComponent } from './components/selecteddestination/selecteddestination-index/selecteddestination-index.component';
 import { SelecteddestinationCreateComponent } from './components/selecteddestination/selecteddestination-create/selecteddestination-create.component';
 import { SelecteddestinationDetailComponent } from './components/selecteddestination/selecteddestination-detail/selecteddestination-detail.component';
@@ -74,9 +75,20 @@ const routes = [
     { path: 'edit/:id', component: GroupEditComponent},
     { path: 'delete/:id', component: GroupDeleteComponent}
     ]
-  }
+  },
 
+{
+  path: 'selecteddestination', children: [
+  { path: '', component: SelecteddestinationIndexComponent},
+  { path: 'create', component: SelecteddestinationCreateComponent},
+  { path: 'detail/:id', component: SelecteddestinationDetailComponent},
+  { path: 'edit/:id', component: SelecteddestinationEditComponent},
+  { path: 'delete/:id', component: SelecteddestinationDeleteComponent}
+  ]
+},
 ];
+
+
 
 
 @NgModule({
@@ -104,12 +116,7 @@ const routes = [
     GroupCreateComponent,
     GroupDetailComponent,
     GroupDeleteComponent,
-    GroupEditComponent,
-    SelecteddestinationIndexComponent,
-    SelecteddestinationCreateComponent,
-    SelecteddestinationDetailComponent,
-    SelecteddestinationEditComponent,
-    SelecteddestinationDeleteComponent
+    GroupEditComponent
 
   ],
   imports: [
@@ -131,7 +138,8 @@ const routes = [
     AuthService,
     DestinationsService,
     ItinerarysService,
-    GroupService
+    GroupService,
+    SelecteddestinationService
   ],
   bootstrap: [AppComponent]
 })

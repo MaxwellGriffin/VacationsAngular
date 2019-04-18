@@ -1,3 +1,14 @@
-<p>
-  selecteddestination-edit works!
-</p>
+<h1>Edit Selected Destination</h1>>
+<hr>
+
+<div *ngIf="selecteddestination">
+  <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="editSelecteddestinationForm">
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Day" formControlName="Day" type="Day" required [value]="selecteddestination.SelecteddestinationId"/>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+
+<a mat-button routerLink="/selecteddestination">Back to List</a>
