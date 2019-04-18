@@ -33,4 +33,8 @@ updateItinerary(itinerary: Itinerary){
   return this._http.put(`${ApiUrl}/Itinerary`, itinerary, {headers:this.getHeaders()});
 }
 
+deleteItinerary(id: number){
+  return this._http.delete(`${ApiUrl}/Itinerary/${id}`,{headers:this.getHeaders()});
+}
+
 }
