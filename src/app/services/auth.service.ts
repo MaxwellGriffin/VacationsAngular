@@ -19,14 +19,15 @@ export class AuthService {
 
   constructor(private _http: HttpClient, private _router: Router) { }
 
+
   register(regUserData: RegisterUser){
-    return this._http.post(`${Api_Url}/api/account/register`, regUserData);
+    return this._http.post(`${Api_Url}/account/register`, regUserData);
   }
 
   login(loginInfo){
     const str = 
-    `grant_type=password&username=${encodeURI(loginInfo.Email)}&password=${encodeURI(loginInfo.Password)}`;
-    return this._http.post(`${Api_Url}/token`, str).subscribe( (token: Token) =>{
+    `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
+    return this._http.post(`${Api_Url}token`, str).subscribe( (token: Token) =>{
       this.isLoggedIn.next(true);
       localStorage.setItem('id_token', token.access_token);
       localStorage.setItem('userName', token.userName);
