@@ -1,0 +1,19 @@
+<h1>
+  Delete
+</h1>
+<h4>Are you sure you want to delete this?</h4>
+
+<hr>
+<div *ngIf='itinerary'>
+  <div>
+    <label for="">Itinerary ID: </label>
+    <span>{{itinerary.ItineraryID}}</span>
+  </div>
+    <div>
+        <label for="">Itinerary Name: </label>
+        <span>{{itinerary.ItineraryName}}</span>
+      </div>
+</div>
+
+<button mat-button color="warn" (click)="onDelete()">Delete</button>|
+<button mat-button color="primary" routerLink="/itinerary">Back to List</button>
