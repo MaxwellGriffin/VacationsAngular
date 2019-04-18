@@ -1,6 +1,8 @@
 <mat-toolbar color="primary">
   <span>Vacations United</span>
   <span class="example-fill-remaining-space"></span>
-  <button mat-raised-button class="nav-btn" routerLink="/register">Register</button>
-  <button mat-raised-button class="nav-btn" routerLink="/login">Login</button>
+  <span>{{welcomeText}}  </span>
+  <button *ngIf="!loggedIn" mat-raised-button class="nav-btn" routerLink="/register">Register</button>
+  <button *ngIf="!loggedIn" mat-raised-button class="nav-btn" routerLink="/login">Login</button>
+  <button *ngIf="loggedIn" mat-raised-button class="nav-btn" routerLink="/logout">Log out</button>
 </mat-toolbar>
