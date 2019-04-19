@@ -147,7 +147,7 @@ const routes = [
     DestinationsService,
     ItinerarysService,
     GroupService,
-    SelecteddestinationService
+    SelecteddestinationService,
     LoginGuard,
     AdminGuard
   ],
