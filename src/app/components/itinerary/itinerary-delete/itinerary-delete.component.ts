@@ -20,7 +20,7 @@ export class ItineraryDeleteComponent implements OnInit {
     });
   }
 
-  OnDelete() {
+  onDelete() {
     this._itineraryService.deleteItinerary(this.itinerary.ItineraryID).subscribe(() =>{
       this._router.navigate(['/itinerary']);
     });
