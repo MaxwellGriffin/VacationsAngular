@@ -5,7 +5,7 @@ import { Token } from '../models/token';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { Api_Url } from 'src/environments/environment.prod';
-import { UserMetaData } from '../models/userMetaData';
+import { UserMetaData } from '../models/UserMetaData';
 
 @Injectable({
   providedIn: 'root'
