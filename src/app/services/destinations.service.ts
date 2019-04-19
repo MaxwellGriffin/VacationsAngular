@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-const ApiUrl = "https://vacationsunitedwebapidnf2019.azurewebsites.net/";
+import { Api_Url } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,7 @@ export class DestinationsService {
   constructor(private _http: HttpClient) { }
 
   getDestinations() {
-    return this._http.get(`${ApiUrl}/Destination`, { headers: this.getHeaders() });
+    return this._http.get(`${Api_Url}/Destination`, { headers: this.getHeaders() });
   }
 
   private getHeaders(){
