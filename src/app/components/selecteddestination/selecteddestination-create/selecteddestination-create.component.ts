@@ -20,7 +20,7 @@ export class SelecteddestinationCreateComponent implements OnInit {
   }
 
   createForm() {
-    this.selecteddestinationForm = this._form.selecteddestination({
+    this.selecteddestinationForm = this._form.group({
       Day: new FormControl,
     });
   }
