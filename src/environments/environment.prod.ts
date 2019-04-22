@@ -4,7 +4,7 @@ switch (window.location.hostname) {
   Api_Url = "http://localhost:51594";
   break;
   default:
-  Api_Url = "https://vacationsunitedwebapidnf2019.azurewebsites.net";
+  Api_Url = "https://vacationsunitedwebapi20190422124815.azurewebsites.net";
   break;
 };
 
