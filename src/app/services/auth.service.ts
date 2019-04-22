@@ -18,7 +18,7 @@ export class AuthService {
   @Output() userLoggedIn: EventEmitter<any> = new EventEmitter();
 
   constructor(private _http: HttpClient, private _router: Router) { }
-
+ 
 
   register(regUserData: RegisterUser){
     return this._http.post(`${Api_Url}/api/Account/register`, regUserData);
