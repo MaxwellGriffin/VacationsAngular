@@ -1,5 +1,5 @@
 {
-  "name": "vacations-angular",
+  "name": "vacationsangular",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ng build --prod",
-    "start": "serve -s dist/vacations-angular"
+    "start": "serve -s dist/VacationsAngular"
   },
   "engines":{
     "node":"10.15.3"
