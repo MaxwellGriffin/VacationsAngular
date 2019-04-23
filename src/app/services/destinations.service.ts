@@ -20,7 +20,7 @@ export class DestinationsService {
   }
 
   getFilteredDestinations(group: string, itinerary: string){
-    return this._http.get(`${Api_Url}/api/Destination`, { headers: this.getHeaders(), params: {group, itinerary} });
+    return this._http.get(`${Api_Url}/api/Destination?groupId=${group}&itineraryId=${itinerary}`, { headers: this.getHeaders() });
   }
 
   getDestination(id: string){

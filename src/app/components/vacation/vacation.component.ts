@@ -27,6 +27,9 @@ export class VacationComponent implements OnInit, AfterViewInit {
 
   ready: boolean = false;
 
+  dColumnNames: string[] = ['Name', 'Location', 'Price', 'Details', 'Add'];
+  dDataSource: MatTableDataSource<Destination>;
+
   ngOnInit() {
   }
 
@@ -39,7 +42,9 @@ export class VacationComponent implements OnInit, AfterViewInit {
     console.log(`Selected group: ${this.selectedGroup}`);
     console.log(`Selected itinerary: ${this.selectedItinerary}`);
 
-    this.destinationList = this.destinationService.getFilteredDestinations(this.selectedGroup.toString(), this.selectedItinerary.toString());
+    this.destinationService.getFilteredDestinations(this.selectedGroup.toString(), this.selectedItinerary.toString()).subscribe((destinations: Destination[]) => {
+      this.dDataSource = new MatTableDataSource<Destination>(destinations);
+    });
     this.ready = true;
   }
 
