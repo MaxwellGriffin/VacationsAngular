@@ -8,3 +8,10 @@ text-align: center;
         padding-right: 5px;
 
 }
+
+.centercontact
+{
+        text-align:center;
+        color: rgb(128, 190, 47);
+        text-shadow: 2px 2px 4px black;
+}
