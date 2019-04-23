@@ -1,10 +1,17 @@
 .logos
 {
-
+text-align: center;
         width: 30x;
         height: 40px;
         border-radius: 50%;
         padding-left: 5px;
         padding-right: 5px;
 
+}
+
+.centercontact
+{
+        text-align:center;
+        color: rgb(128, 190, 47);
+        text-shadow: 2px 2px 4px black;
 }

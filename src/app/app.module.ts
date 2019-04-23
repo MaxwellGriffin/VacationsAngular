@@ -50,6 +50,7 @@ import { SelecteddestinationDeleteComponent } from './components/selecteddestina
 import { VacationComponent } from './components/vacation/vacation.component';
 import { VacDestinationListComponent } from './components/vacation/vac-destination-list/vac-destination-list.component';
 import { VacSelectedDestinationListComponent } from './components/vacation/vac-selected-destination-list/vac-selected-destination-list.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 const routes = [
   { path: '', component: HomeComponent }, //will default to home when opened
@@ -58,6 +59,7 @@ const routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'vacation', component: VacationComponent},
+  { path: 'logout', component: LogoutComponent},
   { path: 'destination', canActivate: [AdminGuard], children: [
     { path: '', component: DestinationIndexComponent },
     { path: 'create', component: DestinationCreateComponent },
@@ -132,7 +134,8 @@ const routes = [
     SelecteddestinationDeleteComponent,
     VacationComponent,
     VacDestinationListComponent,
-    VacSelectedDestinationListComponent
+    VacSelectedDestinationListComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
