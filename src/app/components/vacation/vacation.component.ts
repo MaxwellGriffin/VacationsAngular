@@ -5,6 +5,8 @@ import { Group } from 'src/app/models/group';
 import { Observable } from 'rxjs';
 import { Itinerary } from 'src/app/models/itinerary';
 import { ItinerarysService } from 'src/app/services/itinerarys.service';
+import { Destination } from 'src/app/models/destination'
+import { DestinationsService } from 'src/app/services/destinations.service';
 
 
 @Component({
@@ -14,16 +16,18 @@ import { ItinerarysService } from 'src/app/services/itinerarys.service';
 })
 export class VacationComponent implements OnInit, AfterViewInit {
 
-  constructor(private groupService: GroupService, private itineraryService: ItinerarysService) { }   
+  constructor(private groupService: GroupService, private itineraryService: ItinerarysService, private destinationService: DestinationsService) { }   
 
   groupArray: Group[];
   itineraryArray: Itinerary[];
+  destinationList: Observable<any>;
 
-  selectedGroup: number;
-  selectedItinerary: number;
+  public selectedGroup: number;
+  public selectedItinerary: number;
+
+  ready: boolean = false;
 
   ngOnInit() {
-    
   }
 
   ngAfterViewInit() {
@@ -31,12 +35,12 @@ export class VacationComponent implements OnInit, AfterViewInit {
     this.itineraryArray = this.getItinerarysAsArray();
   }
 
-  printSelectedGroup(){
+  listDestinations(){
     console.log(`Selected group: ${this.selectedGroup}`);
-  }
-
-  printSelectedItinerary(){
     console.log(`Selected itinerary: ${this.selectedItinerary}`);
+
+    this.destinationList = this.destinationService.getFilteredDestinations(this.selectedGroup.toString(), this.selectedItinerary.toString());
+    this.ready = true;
   }
 
   getGroupsAsArray() : Group[]{
@@ -54,6 +58,4 @@ export class VacationComponent implements OnInit, AfterViewInit {
     });
     return this.itineraryArray;
   }
-
-
 }

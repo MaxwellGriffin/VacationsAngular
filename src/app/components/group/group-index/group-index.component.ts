@@ -12,7 +12,7 @@ export class GroupIndexComponent implements OnInit {
 
   constructor(private _groupService: GroupService) { }
 
-  columnNames = ['Region', 'TripType', 'GuestCount', 'Name', 'buttons'];
+  columnNames = ['TripType', 'GuestCount', 'Name', 'buttons'];
   dataSource: MatTableDataSource<Group>;
 
   ngOnInit() {

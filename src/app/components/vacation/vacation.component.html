@@ -7,8 +7,6 @@
   <option *ngFor="let group of groupArray" value="{{group.GroupID}}"> {{group.Name}} </option>
 </select>
 
-<button (click)="printSelectedGroup()">Print</button>
-
 <!--Itinerary select-->
 <p>Then, select an itinerary:</p>
 
@@ -16,16 +14,16 @@
   <option *ngFor="let itinerary of itineraryArray" [value]="itinerary.ItineraryID"> {{itinerary.ItineraryName}} </option>
 </select>
 
-<button (click)="printSelectedItinerary()">Print</button>
-
 <br>
 <hr>
 <br>
 
+<button mat-raised-button (click)="listDestinations()">List Destinations</button>
+
 <!--Displays once a group and itinerary are selected-->
-<div>
+<div *ngIf="selectedGroup && selectedItinerary">
   <div style="width:48%">
-    <app-vac-destination-list></app-vac-destination-list>
+    <app-vac-destination-list [destinations]="destinationList"></app-vac-destination-list>
   </div>
   <div style="width:48%">
     <app-vac-selected-destination-list></app-vac-selected-destination-list>

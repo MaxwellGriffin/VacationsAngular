@@ -6,11 +6,6 @@
   <mat-table #table [dataSource]="dataSource">
     <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
     <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
-
-    <ng-container matColumnDef="Region">
-      <mat-header-cell *matHeaderCellDef class="matColumnSize"> Region </mat-header-cell>
-      <mat-cell *matCellDef="let Group"> {{Group.Region}} </mat-cell>
-    </ng-container>
     
     <ng-container matColumnDef="TripType">
       <mat-header-cell *matHeaderCellDef class="matColumnSize"> Trip Type</mat-header-cell>

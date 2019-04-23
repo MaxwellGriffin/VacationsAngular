@@ -23,7 +23,6 @@ export class GroupCreateComponent implements OnInit {
   createForm() {
     this.groupForm = this._form.group({
       TripType: new FormControl,
-      Region: new FormControl,
       GuestCount: new FormControl,
       OwnerID: localStorage.getItem('userId'),
       Name: new FormControl  
