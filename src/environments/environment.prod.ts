@@ -7,7 +7,7 @@ export let Api_Url = "";
 //   Api_Url = "https://vacationsunitedwebapi20190422124815.azurewebsites.net";
 //   break;
 // };
-Api_Url = "https://vacationsunitedwebapi20190422124815.azurewebsites.net";
+Api_Url = "http://localhost:51594";
 
 export const environment = {
   production: true
