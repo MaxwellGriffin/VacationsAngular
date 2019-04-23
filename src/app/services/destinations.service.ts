@@ -19,6 +19,10 @@ export class DestinationsService {
     return this._http.get(`${Api_Url}/api/Destination`, { headers: this.getHeaders() });
   }
 
+  getFilteredDestinations(group: string, itinerary: string){
+    return this._http.get(`${Api_Url}/api/Destination`, { headers: this.getHeaders(), params: {group, itinerary} });
+  }
+
   getDestination(id: string){
     return this._http.get(`${Api_Url}/api/Destination/${id}`, { headers: this.getHeaders() });
   }

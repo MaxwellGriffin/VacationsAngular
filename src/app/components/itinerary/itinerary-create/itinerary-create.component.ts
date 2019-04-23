@@ -20,7 +20,8 @@ export class ItineraryCreateComponent implements OnInit {
 
   createForm(){
     this.itineraryForm = this._form.group({
-      ItineraryName: new FormControl
+      ItineraryName: new FormControl,
+      Region: new FormControl
     });
   }
 

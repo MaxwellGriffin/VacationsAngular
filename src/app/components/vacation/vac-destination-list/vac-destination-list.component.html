@@ -1,0 +1,35 @@
+<div>
+  <mat-table #table [dataSource]="dataSource">
+    <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+    
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let Destination"> {{Destination.Name}} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="Location">
+      <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
+      <mat-cell *matCellDef="let Destination"> {{Destination.Location}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Price">
+      <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+      <mat-cell *matCellDef="let Destination"> ${{Destination.Price}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Details">
+      <mat-header-cell *matHeaderCellDef> Details </mat-header-cell>
+      <mat-cell *matCellDef="let Destination"> <!--{{}}--> </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="Add">
+      <mat-header-cell *matHeaderCellDef> Add </mat-header-cell>
+      <mat-cell *matCellDef="let Destination">
+        <a routerLink="/destination/edit/{{Destination.DestinationID}}">
+          <i mat-icon class="material-icons">add_shopping_cart</i>
+        </a>
+      </mat-cell>
+    </ng-container>
+  </mat-table>
+</div>

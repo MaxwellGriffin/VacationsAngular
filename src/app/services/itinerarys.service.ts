@@ -13,7 +13,7 @@ export class ItinerarysService {
   constructor(private _http: HttpClient) { }
 
   getItinerarys() {
-    return this._http.get(`${Api_Url}/Itinerary`, { headers: this.getHeaders() });
+    return this._http.get(`${Api_Url}/api/Itinerary`, { headers: this.getHeaders() });
   }
 
   private getHeaders(){
@@ -21,19 +21,19 @@ export class ItinerarysService {
   }
 
 createItinerary(itinerary: Itinerary){
-  return this._http.post(`${Api_Url}/Itinerary`, itinerary, {headers:this.getHeaders()});
+  return this._http.post(`${Api_Url}/api/Itinerary`, itinerary, {headers:this.getHeaders()});
 }
 
 getItinerary(id: string){
-  return this._http.get(`${Api_Url}/Itinerary/${id}`,{headers:this.getHeaders()});
+  return this._http.get(`${Api_Url}/api/Itinerary/${id}`,{headers:this.getHeaders()});
 }
 
 updateItinerary(itinerary: Itinerary){
-  return this._http.put(`${Api_Url}/Itinerary`, itinerary, {headers:this.getHeaders()});
+  return this._http.put(`${Api_Url}/api/Itinerary`, itinerary, {headers:this.getHeaders()});
 }
 
 deleteItinerary(id: number){
-  return this._http.delete(`${Api_Url}/Itinerary/${id}`,{headers:this.getHeaders()});
+  return this._http.delete(`${Api_Url}/api/Itinerary/${id}`,{headers:this.getHeaders()});
 }
 
 }

@@ -4,17 +4,21 @@
 <hr>
 
 <div *ngIf="itinerary">
-<form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="editItineraryForm">
-<div>
-  <div>
-      <mat-form-field>
-          <input matInput placeholder="Itinerary Name" formControlName="ItineraryName" type="text" required [value]="itinerary.ItineraryName"/>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="editItineraryForm">
+    <div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Itinerary Name" formControlName="ItineraryName" type="text" required [value]="itinerary.ItineraryName" />
         </mat-form-field>
-  </div>
-  
-</div>
-<button mat-raised-button class="nav-btn" color="primary" type="submit">Save</button>
-</form>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Region" formControlName="Region" type="number" required [value]="itinerary.Region" />
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button class="nav-btn" color="primary" type="submit">Save</button>
+  </form>
 </div>
 
 <a mat-button routerLink="/itinerary">Back to List</a>

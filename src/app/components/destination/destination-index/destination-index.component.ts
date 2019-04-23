@@ -18,6 +18,6 @@ export class DestinationIndexComponent implements OnInit {
   ngOnInit() {
     this._destinationService.getDestinations().subscribe((destinations: Destination[]) => {
       this.dataSource = new MatTableDataSource<Destination>(destinations);
-  });
-}
+    });
+  }
 }
