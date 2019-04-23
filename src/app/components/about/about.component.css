@@ -2,10 +2,18 @@ h1{
     font-size: 40px;
     color: rgb(128, 190, 47);
     text-align: center;
+    text-shadow: 2px 2px 4px black;
 
 }
 
 p{
     color: rgb(128, 190, 47);
     font-size: 20px;
+}
+
+.backgroundbox{
+    border-radius: 35px;
+    color: rgb(128, 190, 47);
+    text-shadow: 2px 2px 4px black;
+    padding: 1em;
 }

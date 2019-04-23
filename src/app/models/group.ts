@@ -1,7 +1,6 @@
 export interface Group {
-    GroupID?: number;
+    GroupID: number;
     TripType?: number;
-    Region?: number;
     GuestCount?: number;
     OwnerID?: number;
     Name: string;

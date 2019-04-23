@@ -12,7 +12,7 @@ export class ItineraryIndexComponent implements OnInit {
 
   constructor(private _itineraryService: ItinerarysService) { }
 
-  columnNames: string[] = [ 'Name', 'buttons'];
+  columnNames: string[] = [ 'Name', 'Region', 'buttons'];
   dataSource: MatTableDataSource<Itinerary>;
 
   ngOnInit() {

@@ -36,7 +36,8 @@ export class ItineraryEditComponent implements OnInit {
     this.editItineraryForm = this._form.group({
         OwnerId: this.itinerary.OwnerID,
         ItineraryID: this.itinerary.ItineraryID,
-        ItineraryName: new FormControl (this.itinerary.ItineraryName)
+        ItineraryName: new FormControl (this.itinerary.ItineraryName),
+        Region: new FormControl (this.itinerary.Region)
 
     });
   }
@@ -45,7 +46,8 @@ export class ItineraryEditComponent implements OnInit {
     const updateItinerary: Itinerary = {
       ItineraryName:form.value.ItineraryName,
       ItineraryID:form.value.ItineraryID,
-      OwnerID:form.value.OwnerID
+      OwnerID:form.value.OwnerID,
+      Region: form.value.Region
     };
 
     this._itineraryService.updateItinerary(updateItinerary).subscribe(d =>{
