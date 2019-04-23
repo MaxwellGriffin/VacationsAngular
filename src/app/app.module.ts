@@ -48,7 +48,6 @@ import { SelecteddestinationDetailComponent } from './components/selecteddestina
 import { SelecteddestinationEditComponent } from './components/selecteddestination/selecteddestination-edit/selecteddestination-edit.component';
 import { SelecteddestinationDeleteComponent } from './components/selecteddestination/selecteddestination-delete/selecteddestination-delete.component';
 import { VacationComponent } from './components/vacation/vacation.component';
-import { VacDestinationListComponent } from './components/vacation/vac-destination-list/vac-destination-list.component';
 import { VacSelectedDestinationListComponent } from './components/vacation/vac-selected-destination-list/vac-selected-destination-list.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
@@ -133,7 +132,6 @@ const routes = [
     SelecteddestinationEditComponent,
     SelecteddestinationDeleteComponent,
     VacationComponent,
-    VacDestinationListComponent,
     VacSelectedDestinationListComponent,
     LogoutComponent
   ],

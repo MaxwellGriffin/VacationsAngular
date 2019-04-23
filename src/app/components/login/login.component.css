@@ -1,0 +1,26 @@
+.centerlogin
+{
+        text-align:center;;
+}
+
+h1
+{
+    color: rgb(128, 190, 47);
+    text-shadow: 2px 2px 4px black;
+}
+.nav-btn{
+    margin-right:0.5em;
+    background-color:rgb(128, 190, 47);
+    color: black;
+}
+
+.registerhyperlink{
+color:rgb(128,190,47);
+text-shadow: 2px 2px 2px black;
+}
+
+
+.fieldcolor{
+    background-color: white;
+    color: black;
+    }
