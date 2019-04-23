@@ -12,8 +12,8 @@ export class GroupIndexComponent implements OnInit {
 
   constructor(private _groupService: GroupService) { }
 
-  columnNames = ['TripType', 'Name', 'Region', 'GuestCount'];
-  dataSource: MatTableDataSource<Group>
+  columnNames = ['Region', 'TripType', 'GuestCount', 'Name', 'buttons'];
+  dataSource: MatTableDataSource<Group>;
 
   ngOnInit() {
     this._groupService.getGroups().subscribe((groups: Group[]) => {

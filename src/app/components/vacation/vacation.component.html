@@ -1,0 +1,33 @@
+<h1>Create a Vacation!</h1>
+
+<!--Group select-->
+<p>First, select a group:</p>
+
+<select id="groupSelector" data-live-search="true" [(ngModel)]="selectedGroup">
+  <option *ngFor="let group of groupArray" value="{{group.GroupID}}"> {{group.Name}} </option>
+</select>
+
+<button (click)="printSelectedGroup()">Print</button>
+
+<!--Itinerary select-->
+<p>Then, select an itinerary:</p>
+
+<select id="itinerarySelector" data-live-search="true" [(ngModel)]="selectedItinerary">
+  <option *ngFor="let itinerary of itineraryArray" [value]="itinerary.ItineraryID"> {{itinerary.ItineraryName}} </option>
+</select>
+
+<button (click)="printSelectedItinerary()">Print</button>
+
+<br>
+<hr>
+<br>
+
+<!--Displays once a group and itinerary are selected-->
+<div>
+  <div style="width:48%">
+    <app-vac-destination-list></app-vac-destination-list>
+  </div>
+  <div style="width:48%">
+    <app-vac-selected-destination-list></app-vac-selected-destination-list>
+  </div>
+</div>

@@ -47,6 +47,9 @@ import { SelecteddestinationCreateComponent } from './components/selecteddestina
 import { SelecteddestinationDetailComponent } from './components/selecteddestination/selecteddestination-detail/selecteddestination-detail.component';
 import { SelecteddestinationEditComponent } from './components/selecteddestination/selecteddestination-edit/selecteddestination-edit.component';
 import { SelecteddestinationDeleteComponent } from './components/selecteddestination/selecteddestination-delete/selecteddestination-delete.component';
+import { VacationComponent } from './components/vacation/vacation.component';
+import { VacDestinationListComponent } from './components/vacation/vac-destination-list/vac-destination-list.component';
+import { VacSelectedDestinationListComponent } from './components/vacation/vac-selected-destination-list/vac-selected-destination-list.component';
 
 const routes = [
   { path: '', component: HomeComponent }, //will default to home when opened
@@ -54,6 +57,7 @@ const routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'vacation', component: VacationComponent},
   { path: 'destination', canActivate: [AdminGuard], children: [
     { path: '', component: DestinationIndexComponent },
     { path: 'create', component: DestinationCreateComponent },
@@ -125,7 +129,10 @@ const routes = [
     SelecteddestinationCreateComponent,
     SelecteddestinationDetailComponent,
     SelecteddestinationEditComponent,
-    SelecteddestinationDeleteComponent
+    SelecteddestinationDeleteComponent,
+    VacationComponent,
+    VacDestinationListComponent,
+    VacSelectedDestinationListComponent
   ],
   imports: [
     BrowserModule,

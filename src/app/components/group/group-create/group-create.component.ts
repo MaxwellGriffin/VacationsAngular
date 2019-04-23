@@ -22,15 +22,18 @@ export class GroupCreateComponent implements OnInit {
 
   createForm() {
     this.groupForm = this._form.group({
-      Title: new FormControl,
-      Content: new FormControl
+      TripType: new FormControl,
+      Region: new FormControl,
+      GuestCount: new FormControl,
+      OwnerID: localStorage.getItem('userId'),
+      Name: new FormControl  
     });
 
   }
 
     onSubmit() {
       this._groupService.createGroup(this.groupForm.value).subscribe(data => {
-        this._router.navigate(['/groups']);
+        this._router.navigate(['/group']);
       });
     }
   }

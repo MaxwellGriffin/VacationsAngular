@@ -4,15 +4,15 @@ import { Destination } from '../../../models/destination';
 import { MatTableDataSource } from '@angular/material';
 
 @Component({
-  selector: 'app-destination-index',
-  templateUrl: './destination-index.component.html',
-  styleUrls: ['./destination-index.component.css']
+  selector: 'app-vac-destination-list',
+  templateUrl: './vac-destination-list.component.html',
+  styleUrls: ['./vac-destination-list.component.css']
 })
-export class DestinationIndexComponent implements OnInit {
+export class VacDestinationListComponent implements OnInit {
 
   constructor(private _destinationService: DestinationsService) { }
 
-  columnNames: string[] = ['Region', 'TripType', 'Price', 'Name', 'MinGuests', 'MaxGuests', 'Location', 'buttons'];
+  columnNames: string[] = ['Name', 'Location', 'Price', 'Details', 'Add'];
   dataSource: MatTableDataSource<Destination>;
 
   ngOnInit() {
