@@ -37,13 +37,18 @@ export class VacationComponent implements OnInit, AfterViewInit {
 
   dColumnNames: string[] = ['Name', 'Location', 'Price', 'Details', 'Add'];
   dDataSource: MatTableDataSource<Destination>;
-  sdColumnNames: string[] = ['Name', 'Location', 'Price', 'Details', 'Remove'];
+  sdColumnNames: string[] = ['Name', 'Location', 'Price', 'Day', 'Remove'];
   sdDataSource: MatTableDataSource<Selecteddestination>;
 
   tempDestinations: Destination[];
   tempSelectedDestinations: Selecteddestination[];
 
+  chosenDestination: number;
+
+  object: Selecteddestination;
+
   ngOnInit() {
+
   }
 
   ngAfterViewInit() {
@@ -59,35 +64,37 @@ export class VacationComponent implements OnInit, AfterViewInit {
       this.dDataSource = new MatTableDataSource<Destination>(destinations);
     });
     this.ready = true;
+    this.getSelectedDestinationsComprehensive();
   }
 
   getSelectedDestinationsComprehensive() {
-    this.selectedDestinationService.getSelecteddestinations().subscribe((selectedDestinations: Selecteddestination[]) => {
+    this.selectedDestinationService.getSelecteddestinations(this.selectedItinerary.toString()).subscribe((selectedDestinations: any[]) => {
       this.tempSelectedDestinations = selectedDestinations;
-    });
-    this.destinationService.getDestinations().subscribe((destinations: Destination[]) => {
-      this.tempDestinations = destinations;
-    });
-
-    let i, o: number;
-    for (i = 0; i < this.tempSelectedDestinations.length; i++) {
-      for (o = 0; o < this.tempDestinations.length; o++) {
-        if (this.tempSelectedDestinations[i].DestinationID == this.tempDestinations[o].DestinationID) {
-          this.tempSelectedDestinations[i].Region = this.tempDestinations[o].Region;
-          this.tempSelectedDestinations[i].TripType = this.tempDestinations[o].TripType;
-          this.tempSelectedDestinations[i].Price = this.tempDestinations[o].Price;
-          this.tempSelectedDestinations[i].Name = this.tempDestinations[o].Name;
-          this.tempSelectedDestinations[i].MinGuests = this.tempDestinations[o].MinGuests;
-          this.tempSelectedDestinations[i].MaxGuests = this.tempDestinations[o].MaxGuests;
-          this.tempSelectedDestinations[i].Location = this.tempDestinations[o].Location;
+      this.destinationService.getDestinations().subscribe((destinations: any[]) => {
+        this.tempDestinations = destinations;
+        console.log(this.tempSelectedDestinations);
+        let i, o: number;
+        for (i = 0; i < this.tempSelectedDestinations.length; i++) {
+          for (o = 0; o < this.tempDestinations.length; o++) {
+            if (this.tempSelectedDestinations[i].DestinationID === this.tempDestinations[o].DestinationID) {
+              this.tempSelectedDestinations[i].Region = this.tempDestinations[o].Region;
+              this.tempSelectedDestinations[i].TripType = this.tempDestinations[o].TripType;
+              this.tempSelectedDestinations[i].Price = this.tempDestinations[o].Price;
+              this.tempSelectedDestinations[i].Name = this.tempDestinations[o].Name;
+              this.tempSelectedDestinations[i].MinGuests = this.tempDestinations[o].MinGuests;
+              this.tempSelectedDestinations[i].MaxGuests = this.tempDestinations[o].MaxGuests;
+              this.tempSelectedDestinations[i].Location = this.tempDestinations[o].Location;
+            }
+          }
         }
-      }
-    }
-    this.sdDataSource = new MatTableDataSource<Selecteddestination>(this.tempSelectedDestinations);
+        this.sdDataSource = new MatTableDataSource<Selecteddestination>(this.tempSelectedDestinations);
+      });
+    });
   }
 
   addButtonClick(id: number) {
     console.log(id);
+    this.chosenDestination = id;
     this.openDialog();
   }
 
@@ -103,13 +110,22 @@ export class VacationComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe(
       data => {
-        console.log("Dialog output:", data);
-        this.addSelectedDestination(data);
-      });    
+        console.log("Dialog output:", data.day);
+        this.addSelectedDestination(data.day);
+      });
   }
 
   addSelectedDestination(day:number){
-    console.log("Success");
+
+    let obj = { 
+      Day: day,
+      DestinationID: this.chosenDestination,
+      ItineraryID: this.selectedItinerary 
+    };
+
+    this.selectedDestinationService.createSelecteddestination(obj).subscribe();
+    console.log(obj);
+    this.getSelectedDestinationsComprehensive();
   }
 
   getGroupsAsArray(): Group[] {

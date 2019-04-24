@@ -15,8 +15,6 @@
   </option>
 </select>
 
-<button (click)="openDialog()">Open Dialog</button>
-
 <br>
 <hr>
 <br>
@@ -82,21 +80,17 @@
 
           <ng-container matColumnDef="Location">
             <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
-            <mat-cell *matCellDef="let Selecteddestination"> {{Destination.Location}} </mat-cell>
+            <mat-cell *matCellDef="let Selecteddestination"> {{Selecteddestination.Location}} </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="Price">
             <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-            <mat-cell *matCellDef="let Selecteddestination"> ${{Destination.Price}} </mat-cell>
+            <mat-cell *matCellDef="let Selecteddestination"> ${{Selecteddestination.Price}} </mat-cell>
           </ng-container>
 
-          <ng-container matColumnDef="Details">
-            <mat-header-cell *matHeaderCellDef> Details </mat-header-cell>
-            <mat-cell *matCellDef="let Selecteddestination">
-              <span class="detailtext">
-                <!-- {{Destination.Region}} -->
-              </span>
-            </mat-cell>
+          <ng-container matColumnDef="Day">
+            <mat-header-cell *matHeaderCellDef> Day </mat-header-cell>
+              <mat-cell *matCellDef="let Selecteddestination"> {{Selecteddestination.Day}} </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="Remove">
