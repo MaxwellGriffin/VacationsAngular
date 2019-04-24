@@ -4,4 +4,12 @@ export interface Selecteddestination {
     ItineraryID?: number;
     DestinationID?: number;
 
+    //From destination
+    Region?: string;
+    TripType?: number;
+    Price?: number;
+    Name?: string;
+    MinGuests?: number;
+    MaxGuests?: number;
+    Location?: string;
 }

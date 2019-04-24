@@ -5,9 +5,11 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
-  MatTableModule
+  MatTableModule,
+  MatDialogModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RegistrationComponent } from './components/registration/registration.component';
@@ -50,6 +52,7 @@ import { SelecteddestinationDeleteComponent } from './components/selecteddestina
 import { VacationComponent } from './components/vacation/vacation.component';
 import { VacSelectedDestinationListComponent } from './components/vacation/vac-selected-destination-list/vac-selected-destination-list.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { DaydialogComponent } from './components/daydialog/daydialog.component';
 
 const routes = [
   { path: '', component: HomeComponent }, //will default to home when opened
@@ -133,7 +136,8 @@ const routes = [
     SelecteddestinationDeleteComponent,
     VacationComponent,
     VacSelectedDestinationListComponent,
-    LogoutComponent
+    LogoutComponent,
+    DaydialogComponent
   ],
   imports: [
     BrowserModule,
@@ -145,7 +149,10 @@ const routes = [
     MatInputModule,
     MatTableModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   exports: [
     RouterModule
@@ -159,7 +166,8 @@ const routes = [
     LoginGuard,
     AdminGuard
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DaydialogComponent]
 })
 
 export class AppModule { }
