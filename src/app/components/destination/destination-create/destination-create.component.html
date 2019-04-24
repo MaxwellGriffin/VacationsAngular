@@ -1,45 +1,56 @@
-<h1>Create a Destination</h1>
-<hr>
+<div class="centerdestination">
 
-<form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="destinationForm">
-  <div>
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="Name" formControlName="Name" type="text" required/>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="Location" formControlName="Location" type="text" required/>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="Price" formControlName="Price" type="number" required/>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="Min. Guests" formControlName="MinGuests" type="number" required/>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="Max Guests" formControlName="MaxGuests" type="number" required/>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="Region" formControlName="Region" type="number" required/>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="Trip Type" formControlName="TripType" type="number" required/>
-      </mat-form-field>
-    </div>
-  </div>
-  <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Destination</button>
-</form>
+  <h1 class="textcolor">Create a Destination</h1>
+  <hr>
 
-<a mat-button routerLink="/destination">Back to List</a>
+  <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="destinationForm">
+    <div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Name" formControlName="Name" type="text" required />
+        </mat-form-field>
+      </div>
+      <br>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Location" formControlName="Location" type="text" required />
+        </mat-form-field>
+      </div>
+      <br>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Price" formControlName="Price" type="number" required />
+        </mat-form-field>
+      </div>
+      <br>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Min. Guests" formControlName="MinGuests" type="number" required />
+        </mat-form-field>
+      </div>
+      <br>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Max Guests" formControlName="MaxGuests" type="number" required />
+        </mat-form-field>
+      </div>
+      <br>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Region" formControlName="Region" type="number" required />
+        </mat-form-field>
+      </div>
+      <br>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Trip Type" formControlName="TripType" type="number" required />
+        </mat-form-field>
+      </div>
+      <br>
+    </div>
+    <button mat-raised-button class="nav-btn" type="submit">Create Destination</button>
+  </form>
+
+  <a class="textcolor" mat-button routerLink="/destination">Back to List</a>
+
+</div>

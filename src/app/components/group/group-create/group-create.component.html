@@ -1,25 +1,31 @@
-<h1>Create a Group.</h1>
+<div class="centergroup">
+<h1 class="textcolor">Create a Group</h1>
 <hr>
 
 <form #f="ngForm" (ngSubmit)="onSubmit()" [formGroup]="groupForm">
   <div>
     <div>
-      <mat-form-field>
+      <mat-form-field  class="fieldcolor">
         <input matInput placeholder="Name" formControlName="Name" type="text" required/>
       </mat-form-field>
     </div>
+    <br>
     <div>
-      <mat-form-field>
+      <mat-form-field class="fieldcolor">
         <input matInput placeholder="TripType" formControlName="TripType" type="number" required/>
       </mat-form-field>
     </div>
+    <br>
     <div>
-      <mat-form-field>
+      <mat-form-field class="fieldcolor">
         <input matInput placeholder="Guest Count" formControlName="GuestCount" type="number" required/>
       </mat-form-field>
     </div>
+    <br>
   </div>
   <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Group</button>
 </form>
 
-<a mat-button routerLink="/group">Back to List</a>
+<a mat-button routerLink="/group" class="textcolor">Back to List</a>
+
+</div>

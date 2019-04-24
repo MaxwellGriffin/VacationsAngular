@@ -11,7 +11,8 @@
 <p>Then, select an itinerary:</p>
 
 <select id="itinerarySelector" data-live-search="true" [(ngModel)]="selectedItinerary">
-  <option *ngFor="let itinerary of itineraryArray" [value]="itinerary.ItineraryID"> {{itinerary.ItineraryName}} </option>
+  <option *ngFor="let itinerary of itineraryArray" [value]="itinerary.ItineraryID"> {{itinerary.ItineraryName}}
+  </option>
 </select>
 
 <br>
@@ -19,89 +20,87 @@
 <br>
 
 <button mat-raised-button (click)="listDestinations()">List Destinations</button>
+<br>
 
 <!--Displays once a group and itinerary are selected-->
-<div *ngIf="ready">
-  <div style="width:48%">
-    <div>
-      <mat-table #table [dataSource]="dDataSource">
-        <mat-header-row *matHeaderRowDef="dColumnNames"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: dColumnNames;"></mat-row>
-        
-        <ng-container matColumnDef="Name">
-          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-          <mat-cell *matCellDef="let Destination"> {{Destination.Name}} </mat-cell>
-        </ng-container>
-        
-        <ng-container matColumnDef="Location">
-          <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
-          <mat-cell *matCellDef="let Destination"> {{Destination.Location}} </mat-cell>
-        </ng-container>
-    
-        <ng-container matColumnDef="Price">
-          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-          <mat-cell *matCellDef="let Destination"> ${{Destination.Price}} </mat-cell>
-        </ng-container>
-    
-        <ng-container matColumnDef="Details">
-          <mat-header-cell *matHeaderCellDef> Details </mat-header-cell>
-          <mat-cell *matCellDef="let Destination"> 
-            <span class="detailtext">
-              <!-- {{Destination.Region}} -->
-            </span> 
-          </mat-cell>
-        </ng-container>
-        
-        <ng-container matColumnDef="Add">
-          <mat-header-cell *matHeaderCellDef> Add </mat-header-cell>
-          <mat-cell *matCellDef="let Destination">
-            <a routerLink="/destination/edit/{{Destination.DestinationID}}">
-              <i mat-icon class="material-icons">add_shopping_cart</i>
-            </a>
-          </mat-cell>
-        </ng-container>
-      </mat-table>
-    </div>
-  </div>
-  <div style="width:48%">
+
+<table *ngIf="ready" style="width:100%">
+  <tr>
+    <td style="width:48%">
+      <span>Available destinations:</span>
       <div>
-          <mat-table #table [dataSource]="dDataSource">
-            <mat-header-row *matHeaderRowDef="dColumnNames"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: dColumnNames;"></mat-row>
-            
-            <ng-container matColumnDef="Name">
-              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-              <mat-cell *matCellDef="let Destination"> {{Destination.Name}} </mat-cell>
-            </ng-container>
-            
-            <ng-container matColumnDef="Location">
-              <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
-              <mat-cell *matCellDef="let Destination"> {{Destination.Location}} </mat-cell>
-            </ng-container>
-        
-            <ng-container matColumnDef="Price">
-              <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-              <mat-cell *matCellDef="let Destination"> ${{Destination.Price}} </mat-cell>
-            </ng-container>
-        
-            <ng-container matColumnDef="Details">
-              <mat-header-cell *matHeaderCellDef> Details </mat-header-cell>
-              <mat-cell *matCellDef="let Destination"> 
-                <span class="detailtext">
-                  <!-- {{Destination.Region}} -->
-                </span> 
-              </mat-cell>
-            </ng-container>
-            
-            <ng-container matColumnDef="Add">
-              <mat-header-cell *matHeaderCellDef> Add </mat-header-cell>
-              <mat-cell *matCellDef="let Destination">
-                <a routerLink="/destination/edit/{{Destination.DestinationID}}">
-                  <i mat-icon class="material-icons">add_shopping_cart</i>
-                </a>
-              </mat-cell>
-            </ng-container>
-          </mat-table>
-        </div>
-  </div>
-</div>
+        <mat-table #table [dataSource]="dDataSource">
+          <mat-header-row *matHeaderRowDef="dColumnNames"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: dColumnNames;"></mat-row>
+
+          <ng-container matColumnDef="Name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let Destination"> {{Destination.Name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Location">
+            <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
+            <mat-cell *matCellDef="let Destination"> {{Destination.Location}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Price">
+            <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+            <mat-cell *matCellDef="let Destination"> ${{Destination.Price}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Details">
+            <mat-header-cell *matHeaderCellDef> Details </mat-header-cell>
+            <mat-cell *matCellDef="let Destination">
+              <span class="detailtext">
+                <!-- {{Destination.Region}} -->
+              </span>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Add">
+            <mat-header-cell *matHeaderCellDef> Add </mat-header-cell>
+            <mat-cell *matCellDef="let Destination">
+              <button mat-raised-button (click)="addButtonClick(Destination.DestinationID)">Add</button>
+            </mat-cell>
+          </ng-container>
+        </mat-table>
+      </div>
+    </td>
+    <td style="width:48%">
+      <span>Selected destinations:</span>
+      <div>
+        <mat-table #table [dataSource]="sdDataSource">
+          <mat-header-row *matHeaderRowDef="sdColumnNames"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: sdColumnNames;"></mat-row>
+
+          <ng-container matColumnDef="Name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let Selecteddestination"> {{Selecteddestination.Name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Location">
+            <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
+            <mat-cell *matCellDef="let Selecteddestination"> {{Selecteddestination.Location}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Price">
+            <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+            <mat-cell *matCellDef="let Selecteddestination"> ${{Selecteddestination.Price}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Day">
+            <mat-header-cell *matHeaderCellDef> Day </mat-header-cell>
+              <mat-cell *matCellDef="let Selecteddestination"> {{Selecteddestination.Day}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Remove">
+            <mat-header-cell *matHeaderCellDef> Remove </mat-header-cell>
+            <mat-cell *matCellDef="let Selecteddestination">
+              <button mat-raised-button (click)="removeButtonClick(Selecteddestination.SelectedDestinationID)">Delete</button>
+            </mat-cell>
+          </ng-container>
+        </mat-table>
+      </div>
+    </td>
+  </tr>
+</table>
