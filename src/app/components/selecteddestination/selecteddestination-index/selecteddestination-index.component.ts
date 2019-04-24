@@ -16,9 +16,9 @@ export class SelecteddestinationIndexComponent implements OnInit {
   dataSource: MatTableDataSource<Selecteddestination>
 
   ngOnInit() {
-    this._selecteddestinationService.getSelecteddestinations().subscribe((selecteddestinations: Selecteddestination[]) => {
-      this.dataSource = new MatTableDataSource<Selecteddestination>(selecteddestinations);
-  });
+  //   this._selecteddestinationService.getSelecteddestinations().subscribe((selecteddestinations: Selecteddestination[]) => {
+  //     this.dataSource = new MatTableDataSource<Selecteddestination>(selecteddestinations);
+  // });
 
   }
 
