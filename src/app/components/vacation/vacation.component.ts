@@ -98,6 +98,11 @@ export class VacationComponent implements OnInit, AfterViewInit {
     this.openDialog();
   }
 
+  removeButtonClick(id:number){
+    this.selectedDestinationService.deleteSelecteddestination(id).subscribe();
+    this.getSelectedDestinationsComprehensive();
+  }
+
   openDialog() {
     const dialogConfig = new MatDialogConfig();
 

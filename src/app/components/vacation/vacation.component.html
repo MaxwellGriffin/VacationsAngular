@@ -96,7 +96,7 @@
           <ng-container matColumnDef="Remove">
             <mat-header-cell *matHeaderCellDef> Remove </mat-header-cell>
             <mat-cell *matCellDef="let Selecteddestination">
-              <button mat-raised-button (click)="removeButtonClick(Destination.DestinationID)">Add</button>
+              <button mat-raised-button (click)="removeButtonClick(Selecteddestination.SelectedDestinationID)">Delete</button>
             </mat-cell>
           </ng-container>
         </mat-table>

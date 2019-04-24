@@ -32,7 +32,7 @@ export class SelecteddestinationService {
   }
 
   deleteSelecteddestination(id: number) {
-    return this._http.delete(`${Api_Url}/api/Selecteddestinations/${id}`, { headers: this.getHeaders() });
+    return this._http.delete(`${Api_Url}/api/Selecteddestination/${id}`, { headers: this.getHeaders() });
   }
 
 
